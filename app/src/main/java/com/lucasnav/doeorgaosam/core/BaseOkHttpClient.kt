@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam
+package com.lucasnav.doeorgaosam.core
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

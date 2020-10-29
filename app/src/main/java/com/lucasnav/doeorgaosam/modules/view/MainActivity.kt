@@ -1,8 +1,9 @@
-package com.lucasnav.doeorgaosam
+package com.lucasnav.doeorgaosam.modules.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.lucasnav.doeorgaosam.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        replaceFragment(HomeFragment.newInstance())
+        replaceFragment(PostsFragment.newInstance())
 
         bottomAppBar.setNavigationOnClickListener {
 

@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam
+package com.lucasnav.doeorgaosam.modules.model
 
 data class Post(
     var id: Int,
