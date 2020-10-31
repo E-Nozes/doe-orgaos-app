@@ -6,34 +6,34 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvName1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivProfile"
         app:layout_constraintTop_toTopOf="@+id/ivProfile"
-        tools:text="Título" />
+        tools:text="Joao" />
 
     <ImageView
         android:id="@+id/ivPost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="@+id/tvName1"
         app:layout_constraintStart_toStartOf="@+id/ivProfile"
         app:layout_constraintTop_toBottomOf="@+id/ivProfile"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <ImageView
         android:id="@+id/ivProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,27 +41,27 @@
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
-        android:id="@+id/tvSubtitle"
+        android:id="@+id/tvName2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorAccent"
-        android:textSize="16sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/ivPost"
         app:layout_constraintStart_toStartOf="@+id/ivPost"
         app:layout_constraintTop_toBottomOf="@+id/ivPost"
-        tools:text="TextView" />
+        tools:text="Joao" />
 
     <Button
         android:id="@+id/buttonSalvarVIdas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="QUERO SALVAR VIDAS"
-        app:layout_constraintEnd_toEndOf="@+id/tvSubtitle"
+        app:layout_constraintEnd_toEndOf="@+id/tvDescription"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/tvSubtitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
+        app:layout_constraintStart_toStartOf="@+id/tvName2"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
     <View
         android:id="@+id/view"
@@ -76,5 +76,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSalvarVIdas"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivPost"
+        app:layout_constraintStart_toStartOf="@+id/tvName2"
+        app:layout_constraintTop_toBottomOf="@+id/tvName2"
+        tools:text="Estou precisando de um rim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

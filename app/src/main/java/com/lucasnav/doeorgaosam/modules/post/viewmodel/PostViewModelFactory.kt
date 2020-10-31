@@ -1,8 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.viewmodel
+package com.lucasnav.doeorgaosam.modules.post.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.lucasnav.doeorgaosam.modules.repository.PostsRepository
+import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
 
 class PostViewModelFactory(
     private val postsRepository: PostsRepository

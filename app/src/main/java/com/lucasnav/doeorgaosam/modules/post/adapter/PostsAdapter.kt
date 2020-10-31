@@ -1,11 +1,11 @@
-package com.lucasnav.doeorgaosam.modules.adapter
+package com.lucasnav.doeorgaosam.modules.post.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasnav.doeorgaosam.R
-import com.lucasnav.doeorgaosam.modules.model.Post
-import com.lucasnav.doeorgaosam.modules.view.PostViewHolder
+import com.lucasnav.doeorgaosam.modules.post.model.Post
+import com.lucasnav.doeorgaosam.modules.post.view.PostViewHolder
 
 class PostsAdapter() : RecyclerView.Adapter<PostViewHolder>() {
 
@@ -23,7 +23,7 @@ class PostsAdapter() : RecyclerView.Adapter<PostViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-
+        holder.bind(posts[position])
     }
 
     fun update(posts: List<Post>) {

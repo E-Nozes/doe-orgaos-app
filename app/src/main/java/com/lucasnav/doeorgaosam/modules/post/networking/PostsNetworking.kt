@@ -1,9 +1,9 @@
-package com.lucasnav.doeorgaosam.modules.networking
+package com.lucasnav.doeorgaosam.modules.post.networking
 
 import android.annotation.SuppressLint
-import com.lucasnav.doeorgaosam.modules.model.RequestError
+import com.lucasnav.doeorgaosam.modules.post.model.RequestError
 import com.lucasnav.doeorgaosam.core.BaseNetwork
-import com.lucasnav.doeorgaosam.modules.model.Post
+import com.lucasnav.doeorgaosam.modules.post.model.Post
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -20,7 +20,7 @@ class PostsNetworking : BaseNetwork() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                it.content?.let{onSuccess}
+                it.content?.let{onSuccess(it)}
             }, {
                 val error = RequestError(
                     -1,

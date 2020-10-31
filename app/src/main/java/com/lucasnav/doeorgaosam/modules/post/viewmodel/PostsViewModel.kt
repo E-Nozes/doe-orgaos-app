@@ -1,11 +1,11 @@
-package com.lucasnav.doeorgaosam.modules.viewmodel
+package com.lucasnav.doeorgaosam.modules.post.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lucasnav.doeorgaosam.modules.model.RequestError
+import com.lucasnav.doeorgaosam.modules.post.model.RequestError
 import com.lucasnav.doeorgaosam.core.SingleLiveEvent
-import com.lucasnav.doeorgaosam.modules.model.Post
-import com.lucasnav.doeorgaosam.modules.repository.PostsRepository
+import com.lucasnav.doeorgaosam.modules.post.model.Post
+import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
 
 class PostsViewModel(
     private val postsRepository: PostsRepository

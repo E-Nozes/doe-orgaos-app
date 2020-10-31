@@ -1,7 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.view
+package com.lucasnav.doeorgaosam.modules.post.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lucasnav.doeorgaosam.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,8 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(PostsFragment.newInstance())
 
-        bottomAppBar.setNavigationOnClickListener {
-
+        buttonProfile.setOnClickListener {
+            Toast.makeText(applicationContext, "fui clicado", Toast.LENGTH_SHORT).show()
         }
     }
 

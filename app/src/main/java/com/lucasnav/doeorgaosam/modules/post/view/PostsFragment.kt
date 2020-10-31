@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.view
+package com.lucasnav.doeorgaosam.modules.post.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
-import com.lucasnav.doeorgaosam.modules.adapter.PostsAdapter
-import com.lucasnav.doeorgaosam.modules.networking.PostsNetworking
-import com.lucasnav.doeorgaosam.modules.repository.PostsRepository
-import com.lucasnav.doeorgaosam.modules.viewmodel.PostViewModelFactory
-import com.lucasnav.doeorgaosam.modules.viewmodel.PostsViewModel
+import com.lucasnav.doeorgaosam.modules.post.adapter.PostsAdapter
+import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
+import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
+import com.lucasnav.doeorgaosam.modules.post.viewmodel.PostViewModelFactory
+import com.lucasnav.doeorgaosam.modules.post.viewmodel.PostsViewModel
 import kotlinx.android.synthetic.main.fragment_posts.*
 
 class PostsFragment : Fragment() {

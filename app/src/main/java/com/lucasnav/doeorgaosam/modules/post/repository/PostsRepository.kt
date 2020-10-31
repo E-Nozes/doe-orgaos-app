@@ -1,8 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.repository
+package com.lucasnav.doeorgaosam.modules.post.repository
 
-import com.lucasnav.doeorgaosam.modules.networking.PostsNetworking
-import com.lucasnav.doeorgaosam.modules.model.RequestError
-import com.lucasnav.doeorgaosam.modules.model.Post
+import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
+import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.modules.post.model.Post
 
 class PostsRepository(
     private val postsNetworking: PostsNetworking

@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.model
+package com.lucasnav.doeorgaosam.modules.post.model
 
 data class RequestError(
     val code: Int = -1,
