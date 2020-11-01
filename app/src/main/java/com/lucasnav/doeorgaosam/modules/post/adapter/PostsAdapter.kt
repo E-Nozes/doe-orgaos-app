@@ -7,7 +7,7 @@ import com.lucasnav.doeorgaosam.R
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import com.lucasnav.doeorgaosam.modules.post.view.PostViewHolder
 
-class PostsAdapter() : RecyclerView.Adapter<PostViewHolder>() {
+class PostsAdapter : RecyclerView.Adapter<PostViewHolder>() {
 
     private var posts: List<Post> = emptyList()
 

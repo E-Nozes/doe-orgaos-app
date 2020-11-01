@@ -5,6 +5,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.modules.donate.DonateFragment
+import com.lucasnav.doeorgaosam.modules.faq.FaqFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,15 +16,31 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(PostsFragment.newInstance())
 
+        configClicks()
+    }
+
+    private fun configClicks() {
         buttonProfile.setOnClickListener {
-            Toast.makeText(applicationContext, "fui clicado", Toast.LENGTH_SHORT).show()
+//            replaceFragment(FaqFragment.newInstance())
+        }
+
+        buttonHome.setOnClickListener {
+            replaceFragment(PostsFragment.newInstance())
+        }
+
+        buttonDonate.setOnClickListener {
+            replaceFragment(DonateFragment.newInstance())
+        }
+
+        buttonFaq.setOnClickListener {
+            replaceFragment(FaqFragment.newInstance())
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.content, fragment)
+        fragmentTransaction.replace(R.id.content, fragment)
         fragmentTransaction.commit()
     }
 }
