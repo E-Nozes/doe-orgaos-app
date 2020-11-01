@@ -3,7 +3,7 @@ package com.lucasnav.doeorgaosam.modules.faq
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lucasnav.doeorgaosam.core.SingleLiveEvent
-import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.core.RequestError
 
 class QuestionViewModel(
     private val questionsRepository: QuestionsRepository

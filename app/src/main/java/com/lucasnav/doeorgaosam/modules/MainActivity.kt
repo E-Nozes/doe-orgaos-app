@@ -1,12 +1,12 @@
-package com.lucasnav.doeorgaosam.modules.post.view
+package com.lucasnav.doeorgaosam.modules
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lucasnav.doeorgaosam.R
-import com.lucasnav.doeorgaosam.modules.donate.DonateFragment
+import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
 import com.lucasnav.doeorgaosam.modules.faq.FaqFragment
+import com.lucasnav.doeorgaosam.modules.post.view.PostsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

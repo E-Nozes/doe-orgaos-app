@@ -1,6 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.donate
+package com.lucasnav.doeorgaosam.modules.donate.repository
 
-import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.modules.donate.model.Donate
+import com.lucasnav.doeorgaosam.modules.donate.networking.DonateNetworking
+import com.lucasnav.doeorgaosam.core.RequestError
 
 class DonateRepository(
     private val donateNetworking: DonateNetworking

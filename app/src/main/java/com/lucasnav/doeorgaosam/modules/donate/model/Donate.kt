@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.donate
+package com.lucasnav.doeorgaosam.modules.donate.model
 
 data class Donate(
     var description: String,

@@ -1,6 +1,6 @@
 package com.lucasnav.doeorgaosam.modules.faq
 
-import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.core.RequestError
 
 class QuestionsRepository(
     private val questionsNetworking: QuestionsNetworking

@@ -1,7 +1,7 @@
 package com.lucasnav.doeorgaosam.modules.post.networking
 
 import android.annotation.SuppressLint
-import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.core.RequestError
 import com.lucasnav.doeorgaosam.core.BaseNetwork
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import io.reactivex.android.schedulers.AndroidSchedulers

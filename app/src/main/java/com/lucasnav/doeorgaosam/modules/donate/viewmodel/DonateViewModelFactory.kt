@@ -1,7 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.donate
+package com.lucasnav.doeorgaosam.modules.donate.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.lucasnav.doeorgaosam.modules.donate.repository.DonateRepository
 
 class DonateViewModelFactory(
     private val donateRepository: DonateRepository

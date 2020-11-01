@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.donate
+package com.lucasnav.doeorgaosam.modules.donate.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,11 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.modules.donate.networking.DonateNetworking
+import com.lucasnav.doeorgaosam.modules.donate.repository.DonateRepository
+import com.lucasnav.doeorgaosam.modules.donate.viewmodel.DonateViewModel
+import com.lucasnav.doeorgaosam.modules.donate.viewmodel.DonateViewModelFactory
+import com.lucasnav.doeorgaosam.modules.donate.model.Donate
 import kotlinx.android.synthetic.main.fragment_donate.*
 
 class DonateFragment : Fragment() {
@@ -65,13 +70,16 @@ class DonateFragment : Fragment() {
         donateViewModel = ViewModelProvider(
             this,
             DonateViewModelFactory(
-                DonateRepository(DonateNetworking())
+                DonateRepository(
+                    DonateNetworking()
+                )
             )
         ).get(DonateViewModel::class.java)
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = DonateFragment()
+        fun newInstance() =
+            DonateFragment()
     }
 }

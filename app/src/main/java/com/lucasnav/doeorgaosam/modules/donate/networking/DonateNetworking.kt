@@ -1,8 +1,9 @@
-package com.lucasnav.doeorgaosam.modules.donate
+package com.lucasnav.doeorgaosam.modules.donate.networking
 
 import android.annotation.SuppressLint
 import com.lucasnav.doeorgaosam.core.BaseNetwork
-import com.lucasnav.doeorgaosam.modules.post.model.RequestError
+import com.lucasnav.doeorgaosam.modules.donate.model.Donate
+import com.lucasnav.doeorgaosam.core.RequestError
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
