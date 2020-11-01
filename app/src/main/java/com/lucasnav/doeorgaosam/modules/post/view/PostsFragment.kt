@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
 import com.lucasnav.doeorgaosam.modules.MainActivity
+import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
 import com.lucasnav.doeorgaosam.modules.post.adapter.PostsAdapter
 import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
 import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
@@ -55,7 +56,11 @@ class PostsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        postsAdapter = PostsAdapter()
+        postsAdapter = PostsAdapter(
+            onClickListener = {
+                (requireActivity() as MainActivity).replaceFragment(DonateFragment.newInstance())
+            }
+        )
 
         with(rvPosts) {
             setHasFixedSize(true)

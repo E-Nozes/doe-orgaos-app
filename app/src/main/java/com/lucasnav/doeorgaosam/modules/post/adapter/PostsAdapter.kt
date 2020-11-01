@@ -7,7 +7,9 @@ import com.lucasnav.doeorgaosam.R
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import com.lucasnav.doeorgaosam.modules.post.view.PostViewHolder
 
-class PostsAdapter : RecyclerView.Adapter<PostViewHolder>() {
+class PostsAdapter(
+    var onClickListener: () -> Unit
+) : RecyclerView.Adapter<PostViewHolder>() {
 
     private var posts: List<Post> = emptyList()
 
@@ -23,7 +25,7 @@ class PostsAdapter : RecyclerView.Adapter<PostViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(posts[position])
+        holder.bind(onClickListener, posts[position])
     }
 
     fun update(posts: List<Post>) {

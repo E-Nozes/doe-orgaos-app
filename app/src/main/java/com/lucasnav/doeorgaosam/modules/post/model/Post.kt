@@ -4,6 +4,7 @@ data class Post(
     var id: Int,
     var content: String,
     var author: Author,
+    var pictureUrl: String?,
     var dateTime: String
 ) {
     data class Author(
