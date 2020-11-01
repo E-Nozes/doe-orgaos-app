@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.modules.MainActivity
 import com.lucasnav.doeorgaosam.modules.post.adapter.PostsAdapter
 import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
 import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
 import com.lucasnav.doeorgaosam.modules.post.viewmodel.PostViewModelFactory
 import com.lucasnav.doeorgaosam.modules.post.viewmodel.PostsViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_posts.*
 
 class PostsFragment : Fragment() {
@@ -65,7 +67,7 @@ class PostsFragment : Fragment() {
         with(postsViewmodel) {
 
             onLoadFinished.observe(requireActivity(), Observer {
-//                progressBar.visibility = View.GONE
+                progressBar.visibility = View.GONE
             })
 
             onError.observe(requireActivity(), Observer {

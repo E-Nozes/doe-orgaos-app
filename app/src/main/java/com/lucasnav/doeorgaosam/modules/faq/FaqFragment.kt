@@ -60,7 +60,7 @@ class FaqFragment : Fragment() {
         with(questionsViewModel) {
 
             onLoadFinished.observe(requireActivity(), Observer {
-//                progressBar.visibility = View.GONE
+                progressBar2.visibility = View.GONE
             })
 
             onError.observe(requireActivity(), Observer {

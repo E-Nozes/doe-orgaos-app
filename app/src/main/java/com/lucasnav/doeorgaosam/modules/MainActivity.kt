@@ -25,14 +25,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonHome.setOnClickListener {
+            toolbarTitle.text = "Home"
             replaceFragment(PostsFragment.newInstance())
         }
 
         buttonDonate.setOnClickListener {
+            toolbarTitle.text = "Doe"
             replaceFragment(DonateFragment.newInstance())
         }
 
         buttonFaq.setOnClickListener {
+            toolbarTitle.text = "FAQ"
             replaceFragment(FaqFragment.newInstance())
         }
     }

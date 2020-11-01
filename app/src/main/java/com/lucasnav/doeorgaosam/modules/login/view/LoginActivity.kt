@@ -19,7 +19,6 @@ import com.lucasnav.doeorgaosam.modules.login.model.Login
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.login_dialog.*
 
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
@@ -27,6 +26,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
 
         setupViewModel()
 
