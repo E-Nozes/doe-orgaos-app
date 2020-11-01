@@ -15,10 +15,6 @@ class DonateFragment : Fragment() {
 
     private lateinit var donateViewModel: DonateViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,7 +60,6 @@ class DonateFragment : Fragment() {
             })
         }
     }
-
 
     private fun setupViewModel() {
         donateViewModel = ViewModelProvider(
