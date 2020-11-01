@@ -2,6 +2,7 @@ package com.lucasnav.doeorgaosam.modules.post.repository
 
 import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
 import com.lucasnav.doeorgaosam.core.RequestError
+import com.lucasnav.doeorgaosam.modules.post.model.NewPost
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 
 class PostsRepository(
@@ -16,6 +17,22 @@ class PostsRepository(
         postsNetworking.getPostsFromApi(
             size = size,
             page = page,
+            onSuccess = {
+                onSuccess(it)
+            },
+            onError = {
+                onError(it)
+            }
+        )
+    }
+
+    fun makeNewPost(
+        newPost: NewPost,
+        onSuccess: (hasSuccess: Boolean) -> Unit,
+        onError: (error: RequestError) -> Unit
+    ) {
+        postsNetworking.makeNewPost(
+            newPost = newPost,
             onSuccess = {
                 onSuccess(it)
             },

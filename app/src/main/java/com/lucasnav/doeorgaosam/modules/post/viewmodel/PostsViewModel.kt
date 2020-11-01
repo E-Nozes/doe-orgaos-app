@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lucasnav.doeorgaosam.core.RequestError
 import com.lucasnav.doeorgaosam.core.SingleLiveEvent
+import com.lucasnav.doeorgaosam.modules.post.model.NewPost
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import com.lucasnav.doeorgaosam.modules.post.repository.PostsRepository
 
@@ -14,6 +15,9 @@ class PostsViewModel(
     var page = -1
 
     var posts: MutableLiveData<List<Post>> = MutableLiveData()
+
+    var newPostEvent = SingleLiveEvent<Void>()
+
     var onLoadFinished = SingleLiveEvent<Void>()
     var onError = SingleLiveEvent<RequestError>()
 
@@ -26,6 +30,21 @@ class PostsViewModel(
             page = page.toString(),
             onSuccess = {
                 posts.value = it
+                onLoadFinished.call()
+            },
+            onError = {
+                onError.value = it
+                onLoadFinished.call()
+            })
+    }
+
+    fun makeNewPost(
+        newPost: NewPost
+    ) {
+        postsRepository.makeNewPost(
+            newPost = newPost,
+            onSuccess = {
+                if(it) newPostEvent.call()
                 onLoadFinished.call()
             },
             onError = {
