@@ -61,7 +61,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun setupViewModel() {
         loginViewModel = ViewModelProvider(
             this,
@@ -72,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
             )
         ).get(LoginViewModel::class.java)
     }
-
 
     private fun subscribeUI() {
         with(loginViewModel) {

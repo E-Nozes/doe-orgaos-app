@@ -11,16 +11,19 @@ class PostsViewModel(
     private val postsRepository: PostsRepository
 ) : ViewModel() {
 
+    var page = -1
+
     var posts: MutableLiveData<List<Post>> = MutableLiveData()
     var onLoadFinished = SingleLiveEvent<Void>()
-    var onLoadStarted = SingleLiveEvent<Void>()
     var onError = SingleLiveEvent<RequestError>()
 
     fun getPosts() {
 
-        onLoadStarted.call()
+        page++
 
         postsRepository.getPosts(
+            size = 10.toString(),
+            page = page.toString(),
             onSuccess = {
                 posts.value = it
                 onLoadFinished.call()

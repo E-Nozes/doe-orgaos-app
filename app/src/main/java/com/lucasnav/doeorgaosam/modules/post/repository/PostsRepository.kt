@@ -9,9 +9,13 @@ class PostsRepository(
 ) {
     fun getPosts(
         onSuccess: (posts: List<Post>) -> Unit,
-        onError: (error: RequestError) -> Unit
+        onError: (error: RequestError) -> Unit,
+        page: String,
+        size: String
     ) {
         postsNetworking.getPostsFromApi(
+            size = size,
+            page = page,
             onSuccess = {
                 onSuccess(it)
             },

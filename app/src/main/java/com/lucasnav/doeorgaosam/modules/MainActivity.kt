@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        toolbarTitle.text = "Home"
         replaceFragment(PostsFragment.newInstance())
 
         configClicks()
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         buttonFaq.setOnClickListener {
             toolbarTitle.text = "FAQ"
             replaceFragment(FaqFragment.newInstance())
+        }
+
+        buttonNewPost.setOnClickListener {
+//            replaceFragment()
         }
     }
 

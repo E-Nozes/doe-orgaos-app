@@ -40,12 +40,21 @@ class DonateFragment : Fragment() {
     private fun configDonateClick() {
 
         buttonDonate.setOnClickListener {
-            donateViewModel.postDonate(
-                Donate(
-                    etName.text.toString(),
-                    etValue.text.toString().toDouble()
+            if (etAccount.text.toString().isNotEmpty()
+                && etValue.text.toString().isNotEmpty()
+                && etName.text.toString().isNotEmpty()
+                && etNumber.text.toString().isNotEmpty()
+                && etCvv.text.toString().isNotEmpty()
+            ) {
+                donateViewModel.postDonate(
+                    Donate(
+                        etName.text.toString(),
+                        etValue.text.toString().toDouble()
+                    )
                 )
-            )
+            } else {
+                Toast.makeText(context, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

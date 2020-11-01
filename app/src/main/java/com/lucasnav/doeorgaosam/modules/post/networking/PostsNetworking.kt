@@ -1,8 +1,8 @@
 package com.lucasnav.doeorgaosam.modules.post.networking
 
 import android.annotation.SuppressLint
-import com.lucasnav.doeorgaosam.core.RequestError
 import com.lucasnav.doeorgaosam.core.BaseNetwork
+import com.lucasnav.doeorgaosam.core.RequestError
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -14,13 +14,18 @@ class PostsNetworking : BaseNetwork() {
     @SuppressLint("CheckResult")
     fun getPostsFromApi(
         onSuccess: (postsResponse: List<Post>) -> Unit,
-        onError: (error: RequestError) -> Unit
+        onError: (error: RequestError) -> Unit,
+        page: String,
+        size: String
     ) {
-        api.getPosts()
+        api.getPosts(
+            size,
+            page
+        )
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                it.content?.let{onSuccess(it)}
+                it.content?.let { onSuccess(it) }
             }, {
                 val error = RequestError(
                     -1,

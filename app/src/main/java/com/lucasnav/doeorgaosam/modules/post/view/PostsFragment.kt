@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+import androidx.recyclerview.widget.RecyclerView
 import com.lucasnav.doeorgaosam.R
 import com.lucasnav.doeorgaosam.modules.MainActivity
 import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
@@ -22,6 +25,9 @@ class PostsFragment : Fragment() {
 
     private lateinit var postsViewmodel: PostsViewModel
     private lateinit var postsAdapter: PostsAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
+
+    var loading = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +49,18 @@ class PostsFragment : Fragment() {
 
         subscribeUI()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         postsViewmodel.getPosts()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        postsViewmodel.page = -1
+        postsAdapter.clear()
     }
 
     private fun setupViewModel() {
@@ -55,7 +72,11 @@ class PostsFragment : Fragment() {
         ).get(PostsViewModel::class.java)
     }
 
+
     private fun setupRecyclerView() {
+
+        linearLayoutManager = LinearLayoutManager(context, VERTICAL, false)
+
         postsAdapter = PostsAdapter(
             onClickListener = {
                 (requireActivity() as MainActivity).replaceFragment(DonateFragment.newInstance())
@@ -65,15 +86,25 @@ class PostsFragment : Fragment() {
         with(rvPosts) {
             setHasFixedSize(true)
             adapter = postsAdapter
+            layoutManager = linearLayoutManager
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+
+                    val totalItemCount = recyclerView.layoutManager!!.itemCount
+                    val lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition()
+
+                    if (!loading && totalItemCount == lastVisibleItemPosition + 1) {
+                        loading = true
+                        postsViewmodel.getPosts()
+                    }
+                }
+            })
         }
     }
 
     private fun subscribeUI() {
         with(postsViewmodel) {
-
-            onLoadStarted.observe(requireActivity(), Observer {
-                (requireActivity() as MainActivity).loadingBar.visibility = View.VISIBLE
-            })
 
             onLoadFinished.observe(requireActivity(), Observer {
                 (requireActivity() as MainActivity).loadingBar.visibility = View.GONE
@@ -85,6 +116,7 @@ class PostsFragment : Fragment() {
 
             posts.observe(requireActivity(), Observer { newPosts ->
                 postsAdapter.update(newPosts)
+                loading = false
             })
         }
     }

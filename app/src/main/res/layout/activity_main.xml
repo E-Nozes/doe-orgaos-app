@@ -113,10 +113,13 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonNewPost"
         style="@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bottomAppBar"
+        android:tint="@android:color/white"
+        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"
         app:srcCompat="@drawable/ic_add_24dp" />
 
     <ProgressBar
