@@ -1,10 +1,10 @@
 package com.lucasnav.doeorgaosam.modules.post.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
@@ -71,8 +71,12 @@ class PostsFragment : Fragment() {
     private fun subscribeUI() {
         with(postsViewmodel) {
 
+            onLoadStarted.observe(requireActivity(), Observer {
+                (requireActivity() as MainActivity).loadingBar.visibility = View.VISIBLE
+            })
+
             onLoadFinished.observe(requireActivity(), Observer {
-                progressBar.visibility = View.GONE
+                (requireActivity() as MainActivity).loadingBar.visibility = View.GONE
             })
 
             onError.observe(requireActivity(), Observer {

@@ -1,7 +1,8 @@
-package com.lucasnav.doeorgaosam.modules.faq
+package com.lucasnav.doeorgaosam.modules.faq.view
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.lucasnav.doeorgaosam.modules.faq.model.Question
 import kotlinx.android.synthetic.main.faq_item.view.*
 
 class FaqViewHolder(

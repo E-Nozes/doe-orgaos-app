@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.faq
+package com.lucasnav.doeorgaosam.modules.faq.model
 
 data class Question(
     var id: Int,

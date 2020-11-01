@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lucasnav.doeorgaosam.R
 import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
-import com.lucasnav.doeorgaosam.modules.faq.FaqFragment
+import com.lucasnav.doeorgaosam.modules.faq.view.FaqFragment
 import com.lucasnav.doeorgaosam.modules.post.view.PostsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 

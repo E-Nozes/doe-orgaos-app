@@ -1,4 +1,4 @@
-package com.lucasnav.doeorgaosam.modules.faq
+package com.lucasnav.doeorgaosam.modules.faq.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.modules.MainActivity
+import com.lucasnav.doeorgaosam.modules.faq.adapter.QuestionsAdapter
+import com.lucasnav.doeorgaosam.modules.faq.networking.QuestionsNetworking
+import com.lucasnav.doeorgaosam.modules.faq.repository.QuestionsRepository
+import com.lucasnav.doeorgaosam.modules.faq.viewmodel.QuestionViewModel
+import com.lucasnav.doeorgaosam.modules.faq.viewmodel.QuestionViewModelFactory
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_faq.*
 
 class FaqFragment : Fragment() {
@@ -39,7 +46,8 @@ class FaqFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        questionsAdapter = QuestionsAdapter()
+        questionsAdapter =
+            QuestionsAdapter()
 
         with(rvFaq) {
             setHasFixedSize(true)
@@ -51,7 +59,9 @@ class FaqFragment : Fragment() {
         questionsViewModel = ViewModelProvider(
             this,
             QuestionViewModelFactory(
-                QuestionsRepository(QuestionsNetworking())
+                QuestionsRepository(
+                    QuestionsNetworking()
+                )
             )
         ).get(QuestionViewModel::class.java)
     }
@@ -59,8 +69,12 @@ class FaqFragment : Fragment() {
     private fun subscribeUI() {
         with(questionsViewModel) {
 
+            onLoadStarted.observe(requireActivity(), Observer {
+                (requireActivity() as MainActivity).loadingBar.visibility = View.VISIBLE
+            })
+
             onLoadFinished.observe(requireActivity(), Observer {
-                progressBar2.visibility = View.GONE
+                (requireActivity() as MainActivity).loadingBar.visibility = View.GONE
             })
 
             onError.observe(requireActivity(), Observer {
@@ -75,6 +89,7 @@ class FaqFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = FaqFragment()
+        fun newInstance() =
+            FaqFragment()
     }
 }

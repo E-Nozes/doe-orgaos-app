@@ -13,9 +13,13 @@ class PostsViewModel(
 
     var posts: MutableLiveData<List<Post>> = MutableLiveData()
     var onLoadFinished = SingleLiveEvent<Void>()
+    var onLoadStarted = SingleLiveEvent<Void>()
     var onError = SingleLiveEvent<RequestError>()
 
     fun getPosts() {
+
+        onLoadStarted.call()
+
         postsRepository.getPosts(
             onSuccess = {
                 posts.value = it

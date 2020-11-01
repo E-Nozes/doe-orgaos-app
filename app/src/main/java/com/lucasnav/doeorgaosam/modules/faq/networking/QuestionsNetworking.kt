@@ -1,8 +1,9 @@
-package com.lucasnav.doeorgaosam.modules.faq
+package com.lucasnav.doeorgaosam.modules.faq.networking
 
 import android.annotation.SuppressLint
 import com.lucasnav.doeorgaosam.core.BaseNetwork
 import com.lucasnav.doeorgaosam.core.RequestError
+import com.lucasnav.doeorgaosam.modules.faq.model.Question
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

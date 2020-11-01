@@ -1,9 +1,11 @@
-package com.lucasnav.doeorgaosam.modules.faq
+package com.lucasnav.doeorgaosam.modules.faq.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.modules.faq.model.Question
+import com.lucasnav.doeorgaosam.modules.faq.view.FaqViewHolder
 
 class QuestionsAdapter() : RecyclerView.Adapter<FaqViewHolder>() {
 
