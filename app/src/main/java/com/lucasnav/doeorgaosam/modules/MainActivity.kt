@@ -1,11 +1,15 @@
 package com.lucasnav.doeorgaosam.modules
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.core.ACCESS_TOKEN
 import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
 import com.lucasnav.doeorgaosam.modules.faq.view.FaqFragment
+import com.lucasnav.doeorgaosam.modules.login.view.LoginActivity
 import com.lucasnav.doeorgaosam.modules.post.view.NewPostFragment
 import com.lucasnav.doeorgaosam.modules.post.view.PostsFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun configClicks() {
         buttonProfile.setOnClickListener {
-//            replaceFragment(FaqFragment.newInstance())
+            Toast.makeText(baseContext, "Ops, tá mockado", Toast.LENGTH_SHORT).show()
         }
 
         buttonHome.setOnClickListener {
@@ -44,6 +48,18 @@ class MainActivity : AppCompatActivity() {
         buttonNewPost.setOnClickListener {
             toolbarTitle.text = "Nova Publicação"
             replaceFragment(NewPostFragment.newInstance())
+        }
+
+        bottomAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.sair -> {
+                    ACCESS_TOKEN = ""
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                    true
+                }
+                else -> false
+            }
         }
     }
 

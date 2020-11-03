@@ -8,7 +8,7 @@ import com.lucasnav.doeorgaosam.modules.login.view.LoginActivity
 
 class Helper {
 
-    fun redirectToLogin(
+    private fun redirectToLogin(
         context: Context,
         activity: Activity
     ) {
