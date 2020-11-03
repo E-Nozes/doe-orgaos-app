@@ -29,7 +29,7 @@ class PostsAdapter(
     }
 
     fun update(posts: List<Post>) {
-        this.posts += posts
+        this.posts = posts
         notifyDataSetChanged()
     }
 

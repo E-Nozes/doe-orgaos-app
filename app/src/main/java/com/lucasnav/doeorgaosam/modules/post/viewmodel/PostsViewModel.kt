@@ -26,7 +26,7 @@ class PostsViewModel(
         page++
 
         postsRepository.getPosts(
-            size = 10.toString(),
+            size = 30.toString(),
             page = page.toString(),
             onSuccess = {
                 posts.value = it

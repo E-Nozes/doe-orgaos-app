@@ -6,7 +6,7 @@ import com.lucasnav.doeorgaosam.modules.donate.model.Donate
 import com.lucasnav.doeorgaosam.core.RequestError
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-
+import retrofit2.HttpException
 
 class DonateNetworking : BaseNetwork() {
 
@@ -26,8 +26,9 @@ class DonateNetworking : BaseNetwork() {
             .subscribe({
                 it?.let { onSuccess(it) }
             }, {
+                val exception = it as HttpException
                 val error = RequestError(
-                    -1,
+                    exception.code(),
                     it.message.toString()
                 )
                 onError(error)

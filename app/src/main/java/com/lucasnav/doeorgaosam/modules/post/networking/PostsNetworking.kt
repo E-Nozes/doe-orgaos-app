@@ -7,6 +7,7 @@ import com.lucasnav.doeorgaosam.modules.post.model.NewPost
 import com.lucasnav.doeorgaosam.modules.post.model.Post
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
 
 class PostsNetworking : BaseNetwork() {
 
@@ -28,8 +29,9 @@ class PostsNetworking : BaseNetwork() {
             .subscribe({
                 it.content?.let { onSuccess(it) }
             }, {
+                val exception = it as HttpException
                 val error = RequestError(
-                    -1,
+                    exception.code(),
                     it.message.toString()
                 )
                 onError(error)

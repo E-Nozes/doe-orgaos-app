@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.core.Helper
 import com.lucasnav.doeorgaosam.modules.MainActivity
 import com.lucasnav.doeorgaosam.modules.post.model.NewPost
 import com.lucasnav.doeorgaosam.modules.post.networking.PostsNetworking
@@ -73,7 +74,11 @@ class NewPostFragment : Fragment() {
             })
 
             onError.observe(requireActivity(), Observer {
-
+                Helper().catchErrorCode(
+                    it,
+                    requireContext(),
+                    requireActivity()
+                )
             })
 
             newPostEvent.observe(requireActivity(), Observer {

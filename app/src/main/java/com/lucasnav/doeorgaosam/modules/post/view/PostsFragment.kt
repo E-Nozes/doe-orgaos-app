@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.core.Helper
 import com.lucasnav.doeorgaosam.modules.MainActivity
 import com.lucasnav.doeorgaosam.modules.donate.view.DonateFragment
 import com.lucasnav.doeorgaosam.modules.post.adapter.PostsAdapter
@@ -60,7 +61,7 @@ class PostsFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         postsViewmodel.page = -1
-        postsAdapter.clear()
+//        postsAdapter.clear()
     }
 
     private fun setupViewModel() {
@@ -96,7 +97,7 @@ class PostsFragment : Fragment() {
 
                     if (!loading && totalItemCount == lastVisibleItemPosition + 1) {
                         loading = true
-                        postsViewmodel.getPosts()
+//                        postsViewmodel.getPosts()
                     }
                 }
             })
@@ -111,7 +112,11 @@ class PostsFragment : Fragment() {
             })
 
             onError.observe(requireActivity(), Observer {
-
+                Helper().catchErrorCode(
+                    it,
+                    requireContext(),
+                    requireActivity()
+                )
             })
 
             posts.observe(requireActivity(), Observer { newPosts ->

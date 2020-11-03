@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.core.Helper
 import com.lucasnav.doeorgaosam.modules.donate.networking.DonateNetworking
 import com.lucasnav.doeorgaosam.modules.donate.repository.DonateRepository
 import com.lucasnav.doeorgaosam.modules.donate.viewmodel.DonateViewModel
@@ -66,7 +67,11 @@ class DonateFragment : Fragment() {
             })
 
             onError.observe(requireActivity(), Observer {
-                Toast.makeText(context, "Ocorreu um erro ao doar", Toast.LENGTH_SHORT).show()
+                Helper().catchErrorCode(
+                    it,
+                    requireContext(),
+                    requireActivity()
+                )
             })
 
             donate.observe(requireActivity(), Observer { donationResponse ->

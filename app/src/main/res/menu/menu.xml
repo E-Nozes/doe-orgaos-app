@@ -5,5 +5,5 @@
         android:title="configurações" />
     <item
         android:contentDescription="sair"
-        android:title="said" />
+        android:title="sair" />
 </menu>

@@ -17,7 +17,7 @@ object BaseOkHttpClient {
             connectTimeout(30, TimeUnit.SECONDS)
             writeTimeout(60, TimeUnit.SECONDS)
             readTimeout(60, TimeUnit.SECONDS)
-            addInterceptor(BasicAuthInterceptor("react", "#r34ct0"))
+//            addInterceptor(BasicAuthInterceptor("react", "#r34ct0"))
             addInterceptor(HeaderInterceptor())
         }
 

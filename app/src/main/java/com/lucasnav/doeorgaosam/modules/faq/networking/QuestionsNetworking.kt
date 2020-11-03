@@ -6,6 +6,7 @@ import com.lucasnav.doeorgaosam.core.RequestError
 import com.lucasnav.doeorgaosam.modules.faq.model.Question
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
 
 class QuestionsNetworking : BaseNetwork() {
 
@@ -22,8 +23,9 @@ class QuestionsNetworking : BaseNetwork() {
             .subscribe({
                 it?.let{onSuccess(it)}
             }, {
+                val exception = it as HttpException
                 val error = RequestError(
-                    -1,
+                    exception.code(),
                     it.message.toString()
                 )
                 onError(error)

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lucasnav.doeorgaosam.R
+import com.lucasnav.doeorgaosam.core.Helper
 import com.lucasnav.doeorgaosam.modules.MainActivity
 import com.lucasnav.doeorgaosam.modules.faq.adapter.QuestionsAdapter
 import com.lucasnav.doeorgaosam.modules.faq.networking.QuestionsNetworking
@@ -78,7 +79,11 @@ class FaqFragment : Fragment() {
             })
 
             onError.observe(requireActivity(), Observer {
-
+                Helper().catchErrorCode(
+                    it,
+                    requireContext(),
+                    requireActivity()
+                )
             })
 
             questions.observe(requireActivity(), Observer { newQuestions ->
